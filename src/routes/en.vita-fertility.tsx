@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { VitaPage } from "@/components/site/pages";
 export const Route = createFileRoute("/en/vita-fertility")({
   head: () => ({
     meta: [
@@ -14,5 +13,4 @@ export const Route = createFileRoute("/en/vita-fertility")({
       { rel: "alternate", hrefLang: "en", href: "/en/vita-fertility" },
     ],
   }),
-  component: () => <VitaPage lang="en" />,
 });
