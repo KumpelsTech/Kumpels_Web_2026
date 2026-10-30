@@ -51,16 +51,30 @@ export const routeMap: Record<Lang, Record<RouteKey, string>> = {
   },
 };
 
+
 export function alternatePath(pathname: string, target: Lang): string {
   const source: Lang = pathname.startsWith("/en") ? "en" : "es";
+
   if (source === target) return pathname;
-  const keys = Object.keys(routeMap[source]) as RouteKey[];
+
+  const keys = (Object.keys(routeMap[source]) as RouteKey[])
+    .filter((key) => key !== "home")
+    .sort(
+      (a, b) =>
+        routeMap[source][b].length - routeMap[source][a].length
+    );
+
   for (const key of keys) {
     const sourcePath = routeMap[source][key];
-    if (pathname === sourcePath || pathname.startsWith(sourcePath + "/")) {
+
+    if (
+      pathname === sourcePath ||
+      pathname.startsWith(sourcePath + "/")
+    ) {
       const rest = pathname.slice(sourcePath.length);
       return routeMap[target][key] + rest;
     }
   }
+
   return routeMap[target].home;
 }
