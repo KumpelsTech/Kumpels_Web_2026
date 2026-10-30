@@ -10,6 +10,7 @@ export const dict = {
       validation: "Validación",
       investors: "Inversionistas",
       team: "Equipo",
+      about: "Quiénes somos",
       blog: "Blog",
       contact: "Contacto",
       bookDemo: "Solicitar demo",
@@ -258,7 +259,7 @@ export const dict = {
       },
     },
     technology: {
-      title: "Tecnología diseñada para transformar cada flujo",
+      title: "Soluciones diseñadas para transformar cada flujo",
       highlightedTitle: "clínico y operativo",
       intro:
         "Kumpels reúne inteligencia clínica, automatización y trazabilidad en soluciones diseñadas para responder a los retos reales de hospitales, farmacias y clínicas especializadas.",
@@ -891,8 +892,10 @@ export const dict = {
         send: "Enviar mensaje",
       },
       interests: [
-        "Solución hospitalaria Kumpels",
-        "VITA Fertility",
+        "Fertilidad",
+        "Oncología",
+        "Seguimiento extrahospitalario",
+        "Trazabilidad y prevención de errores de medicación",
         "Piloto",
         "Inversionistas",
         "Alianza",
@@ -969,6 +972,7 @@ export const dict = {
       subscribe: "Suscribirme",
       success: "¡Listo! Estás suscrito al newsletter.",
     },
+
     footer: {
       tagline:
         "Tecnología para reducir errores de medicación y optimizar las operaciones en salud.",
@@ -977,9 +981,16 @@ export const dict = {
       resources: "Recursos",
       legal: "Legal",
       followUs: "Síguenos",
-      followCopy: "Síguenos para conocer sobre medicamentos, tecnología en salud y seguridad del paciente.",
+      followCopy:
+        "Síguenos para conocer sobre medicamentos, tecnología en salud y seguridad del paciente.",
+      aboutUs: "Quiénes somos",
+      privacy: "Privacidad",
+      terms: "Términos",
+      newsletterTitle: "Únete al newsletter de Kumpels",
+      newsletterButton: "Suscribirme",
       rights: "Todos los derechos reservados.",
     },
+
     stub: {
       eyebrow: "Próximamente",
       title: "Contenido en preparación",
@@ -996,6 +1007,7 @@ export const dict = {
       validation: "Validation",
       investors: "Investors",
       team: "Team",
+      about: "About us",
       blog: "Blog",
       contact: "Contact",
       bookDemo: "Book a demo",
@@ -1241,7 +1253,7 @@ export const dict = {
       },
     },
     technology: {
-      title: "Technology designed to transform every",
+      title: "Solutions designed to transform every",
       highlightedTitle: "clinical and operational workflow",
       intro:
         "Kumpels brings together clinical intelligence, automation and traceability through solutions designed for the real challenges faced by hospitals, pharmacies and specialized clinics.",
@@ -1851,7 +1863,17 @@ export const dict = {
         interest: "Main interest",
         send: "Send message",
       },
-      interests: ["Kumpels hospital solution", "VITA Fertility", "Pilot", "Investors", "Partnership", "Media / press", "Other"],
+      interests: [
+        "Fertility",
+        "Oncology",
+        "Out-of-hospital follow-up",
+        "Medication traceability and error prevention",
+        "Pilot",
+        "Investors",
+        "Partnership",
+        "Media / press",
+        "Other",
+      ],
       bookDemo: "Book a demo",
       whatsapp: "Contact us on WhatsApp",
       success: "Thanks. We received your message and will be in touch shortly.",
@@ -1921,6 +1943,7 @@ export const dict = {
       subscribe: "Subscribe",
       success: "All set — you're subscribed.",
     },
+
     footer: {
       tagline:
         "Technology to reduce medication errors and optimize healthcare operations.",
@@ -1929,9 +1952,16 @@ export const dict = {
       resources: "Resources",
       legal: "Legal",
       followUs: "Follow us",
-      followCopy: "Follow us for medication, health-tech and patient-safety insights.",
+      followCopy:
+        "Follow us for insights on medications, healthcare technology, and patient safety.",
+      aboutUs: "About us",
+      privacy: "Privacy",
+      terms: "Terms",
+      newsletterTitle: "Join the Kumpels newsletter",
+      newsletterButton: "Subscribe",
       rights: "All rights reserved.",
     },
+
     stub: {
       eyebrow: "Coming soon",
       title: "Content in preparation",

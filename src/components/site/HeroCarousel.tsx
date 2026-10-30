@@ -37,66 +37,17 @@ export function HeroCarousel({ lang }: { lang: Lang }) {
     };
   }, [embla]);
 
-  const slides: Slide[] =
-    lang === "es"
-      ? [
-        {
-          titleA: "Menos errores.",
-          titleB: "Más vidas cuidadas.",
-          desc: "Validación clínica con IA para cada prescripción, en tiempo real.",
-          cta: "Ver soluciones",
-          href: r.solutions,
-          image: "/images/fondo.png",
-          align: "left",
-        },
-        {
-          titleA: "Cada medicamento,",
-          titleB: "de principio a fin.",
-          desc: "Dispensación, entrega y administración conectadas en un solo flujo.",
-          cta: "Explorar tecnología",
-          href: r.technology,
-          image: "/images/fondo2.png",
-          align: "left",
-        },
-        {
-          titleA: "Fertilidad,",
-          titleB: "digitalizada con precisión.",
-          desc: "Una plataforma dedicada para clínicas que no aceptan errores.",
-          cta: "Conocer VITA",
-          href: r.vita,
-          image: "/images/fondo3.png",
-          align: "left",
-        },
-      ]
-      : [
-        {
-          titleA: "Fewer errors.",
-          titleB: "More lives cared for.",
-          desc: "AI-powered clinical validation for every prescription, in real time.",
-          cta: "See solutions",
-          href: r.solutions,
-          image: "/images/hero/seguridad-paciente.jpg",
-          align: "left",
-        },
-        {
-          titleA: "Every medication,",
-          titleB: "end to end.",
-          desc: "Dispensing, delivery and administration connected in one flow.",
-          cta: "Explore technology",
-          href: r.technology,
-          image: "/images/hero/trazabilidad.jpg",
-          align: "left",
-        },
-        {
-          titleA: "Fertility,",
-          titleB: "digitized with precision.",
-          desc: "A dedicated platform for clinics that don't accept errors.",
-          cta: "Discover VITA",
-          href: r.vita,
-          image: "/images/hero/vita-fertility.jpg",
-          align: "left",
-        },
-      ];
+  const slides: Slide[] = lang === "es" ? [
+    { titleA: "Menos errores.", titleB: "Más vidas cuidadas.", desc: "Kumpels Core conecta pacientes, equipos y sistemas para que cada acción con medicamentos ocurra en el momento correcto.", cta: "Ver soluciones", href: r.solutions, image: "/images/fondo.png", align: "left" },
+    { titleA: "Cada medicamento,", titleB: "de principio a fin.", desc: "Trazabilidad de la dispensación, la entrega y la administración en un solo flujo.", cta: "Ver soluciones", href: r.solutions, image: "/images/fondo2.png", align: "left" },
+    { titleA: "Fertilidad,", titleB: "digitalizada con precisión.", desc: "El pack de Kumpels Core para clínicas de fertilidad: cada paso del tratamiento, coordinado y trazable.", cta: "Ver soluciones", href: r.solutions, image: "/images/fondo3.png", align: "left" },
+    { titleA: "Oncología:", titleB: "el tratamiento continúa entre ciclos.", desc: "El pack de Kumpels Core que acompaña al paciente en casa y prioriza a quienes más necesitan al equipo.", cta: "Ver soluciones", href: r.solutions, image: "/images/fondo4.png", align: "left" },
+  ] : [
+    { titleA: "Fewer errors.", titleB: "More lives cared for.", desc: "Kumpels Core connects patients, teams and systems so every medication-related action happens at the right time.", cta: "View solutions", href: r.solutions, image: "/images/fondo.png", align: "left" },
+    { titleA: "Every medication,", titleB: "from start to finish.", desc: "Traceability of dispensing, delivery and administration in a single workflow.", cta: "View solutions", href: r.solutions, image: "/images/fondo2.png", align: "left" },
+    { titleA: "Fertility,", titleB: "digitized with precision.", desc: "The Kumpels Core pack for fertility clinics: every step of treatment, coordinated and traceable.", cta: "View solutions", href: r.solutions, image: "/images/fondo3.png", align: "left" },
+    { titleA: "Oncology:", titleB: "care continues between cycles.", desc: "The Kumpels Core pack that supports patients at home and prioritizes those who most need the care team.", cta: "View solutions", href: r.solutions, image: "/images/fondo4.png", align: "left" },
+  ];
 
   return (
     <section className="relative overflow-hidden bg-white">
@@ -104,9 +55,10 @@ export function HeroCarousel({ lang }: { lang: Lang }) {
         <div className="flex">
           {slides.map((s, i) => (
             <div key={i} className="min-w-0 flex-[0_0_100%]">
-              <div className="relative min-h-[720px] overflow-hidden md:min-h-[820px]">
+              <div className="relative min-h-[720px] overflow-hidden bg-[#071B52] md:min-h-[820px]">
                 <img
                   src={s.image}
+                  alt=""
                   className="absolute inset-0 h-full w-full object-cover"
                   draggable={false}
                 />

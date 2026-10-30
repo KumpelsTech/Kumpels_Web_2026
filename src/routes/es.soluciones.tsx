@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SolutionsPage } from "@/components/site/pages";
+import { CoreSolutionsPage } from "@/components/site/CoreSolutionsPage";
+
 export const Route = createFileRoute("/es/soluciones")({
   head: () => ({
     meta: [
       { title: "Soluciones — Kumpels" },
-      { name: "description", content: "Módulo Clínico/CDSS, Trazabilidad y soluciones a la medida para instituciones de salud." },
+      { name: "description", content: "Kumpels Core reúne inteligencia clínica, automatización y trazabilidad en un solo motor, con soluciones por especialidad para hospitales, farmacias y clínicas especializadas." },
       { property: "og:title", content: "Soluciones — Kumpels" },
       { property: "og:url", content: "/es/soluciones" },
     ],
@@ -14,5 +15,5 @@ export const Route = createFileRoute("/es/soluciones")({
       { rel: "alternate", hrefLang: "en", href: "/en/solutions" },
     ],
   }),
-  component: () => <SolutionsPage lang="es" />,
+  component: () => <CoreSolutionsPage lang="es" />,
 });

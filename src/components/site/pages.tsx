@@ -3,6 +3,7 @@ import type { Lang } from "@/i18n/types";
 import { routeMap } from "@/i18n/types";
 import { t } from "@/i18n/dict";
 import { useState } from "react";
+import { LinkedInNewsletterArchive } from "./LinkedInNewsletterArchive";
 
 import {
   ArrowRight,
@@ -188,8 +189,8 @@ export function SolutionsPage({ lang }: { lang: Lang }) {
                 >
                   <span
                     className={`absolute right-0 top-0 h-1 w-20 ${index % 2 === 0
-                        ? "bg-[#0845D4]"
-                        : "bg-[#F7BA2B]"
+                      ? "bg-[#0845D4]"
+                      : "bg-[#F7BA2B]"
                       }`}
                   />
 
@@ -208,8 +209,8 @@ export function SolutionsPage({ lang }: { lang: Lang }) {
                   <div className="mt-auto pt-7">
                     <div
                       className={`h-px w-12 transition-all duration-300 group-hover:w-full ${index % 2 === 0
-                          ? "bg-[#0845D4]"
-                          : "bg-[#F7BA2B]"
+                        ? "bg-[#0845D4]"
+                        : "bg-[#F7BA2B]"
                         }`}
                     />
                   </div>
@@ -257,8 +258,8 @@ export function SolutionsPage({ lang }: { lang: Lang }) {
 
                   <span
                     className={`absolute bottom-0 left-0 h-1.5 ${index === 1
-                        ? "w-2/3 bg-[#F7BA2B]"
-                        : "w-2/3 bg-[#27B8FF]"
+                      ? "w-2/3 bg-[#F7BA2B]"
+                      : "w-2/3 bg-[#27B8FF]"
                       }`}
                   />
                 </div>
@@ -298,155 +299,6 @@ export function SolutionsPage({ lang }: { lang: Lang }) {
       </section>
 
       {/* ===============================================================
-          ALIADO TECNOLÓGICO — BORING
-      =============================================================== */}
-      <section className="relative overflow-hidden bg-[#071B52] py-20 text-white md:py-28">
-        <div className="pointer-events-none absolute -left-40 top-0 h-[420px] w-[420px] rounded-full bg-[#0845D4]/35 blur-[140px]" />
-
-        <div className="pointer-events-none absolute -right-40 bottom-0 h-[420px] w-[420px] rounded-full bg-[#27B8FF]/15 blur-[140px]" />
-
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.12]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
-            backgroundSize: "46px 46px",
-          }}
-        />
-
-        <div className="container-page relative z-10">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-            {/* Introducción */}
-            <div className="lg:col-span-5">
-
-              <h2 className="mt-5 font-display text-4xl font-black leading-tight tracking-[-0.035em] md:text-5xl">
-                {L.technologyPartner.title}
-              </h2>
-
-              <div className="mt-6 flex gap-2">
-                <span className="h-1 w-20 bg-[#F7BA2B]" />
-                <span className="h-1 w-10 bg-[#27B8FF]" />
-              </div>
-
-              <p className="mt-6 max-w-xl text-base leading-8 text-white/68">
-                {L.technologyPartner.description}
-              </p>
-
-              <a
-                href={L.technologyPartner.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-8 inline-flex items-center gap-2 border border-white/25 bg-white/10 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/15"
-              >
-                {L.technologyPartner.websiteLabel}
-
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-            </div>
-
-            {/* Líderes */}
-            <div className="border-t border-white/20 lg:col-span-7">
-              {L.technologyPartner.leaders.map((leader, index) => (
-                <article
-                  key={leader.name}
-                  className="group relative grid gap-5 border-b border-white/20 py-8 md:grid-cols-[70px_1fr_1.25fr] md:items-start"
-                >
-                  <span className="grid h-12 w-12 place-items-center border border-white/20 bg-white/10 text-[#27B8FF]">
-                    {index === 0 ? (
-                      <Code2 className="h-5 w-5" />
-                    ) : (
-                      <Lightbulb className="h-5 w-5" />
-                    )}
-                  </span>
-
-                  <div>
-                    <h3 className="font-display text-xl font-black text-white">
-                      {leader.name}
-                    </h3>
-
-                    <p className="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-[#27B8FF]">
-                      {leader.role}
-                    </p>
-                  </div>
-
-                  <p className="text-sm leading-7 text-white/60">
-                    {leader.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===============================================================
-          ASESORES
-      =============================================================== */}
-      <section className="relative overflow-hidden bg-[#F4F8FC] py-20 md:py-28">
-        <div className="pointer-events-none absolute right-0 top-0 h-1.5 w-1/3 bg-[#F7BA2B]" />
-
-        <div className="pointer-events-none absolute left-0 top-0 h-1.5 w-1/4 bg-[#0845D4]" />
-
-        <div className="container-page relative z-10">
-          <div className="max-w-4xl">
-
-            <h2 className="mt-4 font-display text-4xl font-black leading-tight tracking-[-0.035em] text-[#071B52] md:text-5xl">
-              {L.advisors.title}
-            </h2>
-
-            <p className="mt-5 max-w-3xl text-base leading-8 text-[#66758A]">
-              {L.advisors.intro}
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-7 lg:grid-cols-2">
-            {L.advisors.items.map((advisor, index) => (
-              <article
-                key={advisor.name}
-                className="group relative flex min-h-[380px] flex-col overflow-hidden border border-[#D8E4ED] bg-white p-8 shadow-[0_18px_50px_rgba(7,27,82,0.065)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_65px_rgba(7,27,82,0.11)] md:p-9"
-              >
-                <div
-                  className={`absolute left-0 top-0 h-full w-1 ${index === 0 ? "bg-[#0845D4]" : "bg-[#F7BA2B]"
-                    }`}
-                />
-
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#0845D4]">
-                  {advisor.area}
-                </p>
-
-                <h3 className="mt-5 font-display text-3xl font-black leading-tight text-[#16213D]">
-                  {advisor.name}
-                </h3>
-
-                <p className="mt-2 text-sm font-bold text-[#0845D4]">
-                  {advisor.role}
-                </p>
-
-                <p className="mt-6 text-sm leading-7 text-[#66758A]">
-                  {advisor.description}
-                </p>
-
-                <div className="mt-auto pt-8">
-                  <a
-                    href={advisor.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/link inline-flex items-center gap-2 text-sm font-bold text-[#0845D4] transition hover:text-[#27B8FF]"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                    LinkedIn
-
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===============================================================
           HISTORIA
       =============================================================== */}
       <section className="relative overflow-hidden bg-white py-20 md:py-28">
@@ -474,8 +326,8 @@ export function SolutionsPage({ lang }: { lang: Lang }) {
                     {/* Punto central */}
                     <span
                       className={`absolute left-0 top-1 grid h-8 w-8 place-items-center border-4 border-white shadow md:left-1/2 md:-translate-x-1/2 ${index === L.story.items.length - 1
-                          ? "bg-[#F7BA2B]"
-                          : "bg-[#0845D4]"
+                        ? "bg-[#F7BA2B]"
+                        : "bg-[#0845D4]"
                         }`}
                     />
 
@@ -488,8 +340,8 @@ export function SolutionsPage({ lang }: { lang: Lang }) {
                     >
                       <p
                         className={`font-display text-3xl font-black ${index === L.story.items.length - 1
-                            ? "text-[#F0A800]"
-                            : "text-[#0845D4]"
+                          ? "text-[#F0A800]"
+                          : "text-[#0845D4]"
                           }`}
                       >
                         {item.year}
@@ -559,7 +411,7 @@ export function SolutionsPage({ lang }: { lang: Lang }) {
                 </a>
 
                 <Link
-                  to={r.technology}
+                  to={r.solutions}
                   className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-base font-bold text-white backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/20"
                 >
                   {L.cta.secondary}
@@ -599,12 +451,12 @@ export function TechnologyPage({ lang }: { lang: Lang }) {
             <article
               key={product.name}
               className={`relative isolate overflow-hidden py-20 md:py-28 lg:py-32 ${index === 0
-                  ? "bg-[#F0F8FF]"
-                  : index === 1
-                    ? "bg-white"
-                    : index === 2
-                      ? "bg-gradient-to-br from-[#EAF7FF] via-[#F7FBFF] to-white"
-                      : "bg-[#F6FAFD]"
+                ? "bg-[#F0F8FF]"
+                : index === 1
+                  ? "bg-white"
+                  : index === 2
+                    ? "bg-gradient-to-br from-[#EAF7FF] via-[#F7FBFF] to-white"
+                    : "bg-[#F6FAFD]"
                 }`}
             >
               {/* =========================================================
@@ -787,8 +639,8 @@ export function TechnologyPage({ lang }: { lang: Lang }) {
                         >
                           <span
                             className={`mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full ${featureIndex % 2 === 0
-                                ? "bg-[#0845D4]/10 text-[#0845D4]"
-                                : "bg-[#27B8FF]/15 text-[#087AB8]"
+                              ? "bg-[#0845D4]/10 text-[#0845D4]"
+                              : "bg-[#27B8FF]/15 text-[#087AB8]"
                               }`}
                           >
                             <CheckCircle2 className="h-3.5 w-3.5" />
@@ -1048,8 +900,8 @@ export function ValidationPage({ lang }: { lang: Lang }) {
               <article
                 key={stat.label}
                 className={`relative px-6 py-8 text-center md:px-8 md:py-10 ${index < L.heroStats.length - 1
-                    ? "border-b border-[#D5E2EC] md:border-b-0 md:border-r"
-                    : ""
+                  ? "border-b border-[#D5E2EC] md:border-b-0 md:border-r"
+                  : ""
                   }`}
               >
                 <p
@@ -1098,15 +950,15 @@ export function ValidationPage({ lang }: { lang: Lang }) {
             <article
               key={caseStudy.id}
               className={`relative overflow-hidden py-20 md:py-28 ${isCardio
-                  ? "bg-white"
-                  : "bg-gradient-to-br from-[#EAF6FD] via-[#F7FBFE] to-white"
+                ? "bg-white"
+                : "bg-gradient-to-br from-[#EAF6FD] via-[#F7FBFE] to-white"
                 }`}
             >
               {/* Fondos suaves */}
               <div
                 className={`pointer-events-none absolute top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full blur-[145px] ${reversed
-                    ? "-left-52 bg-[#0845D4]/[0.08]"
-                    : "-right-52 bg-[#27B8FF]/[0.11]"
+                  ? "-left-52 bg-[#0845D4]/[0.08]"
+                  : "-right-52 bg-[#27B8FF]/[0.11]"
                   }`}
               />
 
@@ -1132,8 +984,8 @@ export function ValidationPage({ lang }: { lang: Lang }) {
 
                       <span
                         className={`absolute bottom-5 left-5 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] ${caseStudy.statusType === "completed"
-                            ? "bg-[#0845D4] text-white"
-                            : "bg-[#F7BA2B] text-[#071B52]"
+                          ? "bg-[#0845D4] text-white"
+                          : "bg-[#F7BA2B] text-[#071B52]"
                           }`}
                       >
                         {caseStudy.status}
@@ -1178,15 +1030,15 @@ export function ValidationPage({ lang }: { lang: Lang }) {
                     >
                       <span
                         className={`absolute left-0 top-0 h-1 w-full ${metricIndex % 2 === 0
-                            ? "bg-[#0845D4]"
-                            : "bg-[#F7BA2B]"
+                          ? "bg-[#0845D4]"
+                          : "bg-[#F7BA2B]"
                           }`}
                       />
 
                       <p
                         className={`font-display text-3xl font-black leading-tight ${metricIndex % 2 === 0
-                            ? "text-[#0845D4]"
-                            : "text-[#E5A000]"
+                          ? "text-[#0845D4]"
+                          : "text-[#E5A000]"
                           }`}
                       >
                         {metric.value}
@@ -1214,8 +1066,8 @@ export function ValidationPage({ lang }: { lang: Lang }) {
                         >
                           <span
                             className={`font-display text-sm font-black ${itemIndex % 2 === 0
-                                ? "text-[#0845D4]"
-                                : "text-[#E5A000]"
+                              ? "text-[#0845D4]"
+                              : "text-[#E5A000]"
                               }`}
                           >
                             {String(itemIndex + 1).padStart(2, "0")}
@@ -1353,7 +1205,7 @@ export function ValidationPage({ lang }: { lang: Lang }) {
                 </a>
 
                 <Link
-                  to={r.technology}
+                  to={r.solutions}
                   className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-base font-bold text-white backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/20"
                 >
                   {L.cta.secondary}
@@ -2195,20 +2047,14 @@ export function ContactPage({ lang }: { lang: Lang }) {
 
 /* ============ BLOG ============ */
 
+
 export function BlogPage({ lang }: { lang: Lang }) {
   const B = t(lang).blog;
-  const r = routeMap[lang];
-
-  const featuredArticles = articles.filter((article) => article.featured);
-  const allArticles = [...articles].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
 
   return (
     <>
       {/* HERO */}
       <section className="relative isolate overflow-hidden bg-[#071B52] py-20 text-white md:py-28">
-        {/* Trama sutil */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-[0.12]"
@@ -2219,12 +2065,10 @@ export function BlogPage({ lang }: { lang: Lang }) {
           }}
         />
 
-        {/* Luces */}
         <div className="pointer-events-none absolute -left-40 top-0 h-[420px] w-[420px] rounded-full bg-[#0845D4]/35 blur-[140px]" />
 
         <div className="pointer-events-none absolute -right-40 bottom-0 h-[420px] w-[420px] rounded-full bg-[#27B8FF]/15 blur-[140px]" />
 
-        {/* Franja gráfica */}
         <div className="pointer-events-none absolute bottom-0 right-0 h-20 w-[36%] bg-[#F7BA2B] [clip-path:polygon(25%_100%,100%_5%,100%_100%)]" />
 
         <div className="container-page relative z-10">
@@ -2249,70 +2093,21 @@ export function BlogPage({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* ARTÍCULOS DESTACADOS */}
-      {featuredArticles.length > 0 && (
-        <section className="relative overflow-hidden bg-[#F2F8FC] py-20 md:py-28">
-          <div className="pointer-events-none absolute -right-40 top-0 h-[360px] w-[360px] rounded-full bg-[#27B8FF]/10 blur-[120px]" />
+      {/* CINCO NEWSLETTERS DE LINKEDIN */}
+      <LinkedInNewsletterArchive lang={lang} />
 
-          <div className="container-page relative z-10">
-            <BlogSectionHeader title={B.featuredTitle} />
-
-            <div className="mt-10 grid gap-7 lg:grid-cols-2">
-              {featuredArticles.slice(0, 2).map((article, index) => (
-                <FeaturedArticleCard
-                  key={article.slug}
-                  article={article}
-                  lang={lang}
-                  blogRoute={r.blog}
-                  readMore={B.readMore}
-                  featuredLabel={B.featured}
-                  minRead={B.minRead}
-                  large={index === 0}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* TODOS LOS ARTÍCULOS */}
-      <section className="relative overflow-hidden bg-white py-20 md:py-28">
-        <div className="pointer-events-none absolute -left-40 bottom-0 h-[380px] w-[380px] rounded-full bg-[#0845D4]/[0.055] blur-[130px]" />
-
-        <div className="container-page relative z-10">
-          <BlogSectionHeader title={B.allTitle} />
-
-          {allArticles.length > 0 ? (
-            <div className="mt-10 border-t-2 border-[#071B52]">
-              {allArticles.map((article) => (
-                <ArticleRow
-                  key={article.slug}
-                  article={article}
-                  lang={lang}
-                  blogRoute={r.blog}
-                  readMore={B.readMore}
-                  featuredLabel={B.featured}
-                  minRead={B.minRead}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="mt-10 border border-[#DCE5EE] bg-[#F8FBFE] p-8 text-center">
-              <p className="text-[#66758A]">{B.empty}</p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* NEWSLETTER */}
-      <section className="relative overflow-hidden bg-[#EAF5FC] py-20 md:py-24">
+      {/* SUSCRIPCIÓN AL NEWSLETTER */}
+      <section
+        id="newsletter"
+        className="relative scroll-mt-24 overflow-hidden bg-[#EAF5FC] py-20 md:py-24"
+      >
         <div className="pointer-events-none absolute -left-40 top-0 h-[380px] w-[380px] rounded-full bg-[#27B8FF]/12 blur-[120px]" />
 
         <div className="pointer-events-none absolute -right-40 bottom-0 h-[380px] w-[380px] rounded-full bg-[#0845D4]/10 blur-[120px]" />
 
         <div className="container-page relative z-10">
           <div className="grid overflow-hidden border border-[#C9DDEB] bg-white shadow-[0_25px_70px_rgba(7,27,82,0.10)] lg:grid-cols-12">
-            {/* Mensaje */}
+
             <div className="p-8 md:p-12 lg:col-span-7 lg:p-14">
               <h2 className="max-w-3xl font-display text-4xl font-black leading-tight tracking-[-0.035em] text-[#071B52] md:text-5xl">
                 {B.newsletter.title}
@@ -2328,16 +2123,17 @@ export function BlogPage({ lang }: { lang: Lang }) {
               </p>
             </div>
 
-            {/* Formulario */}
             <div className="flex items-center bg-[#071B52] p-8 lg:col-span-5 lg:p-10">
               <NewsletterForm lang={lang} />
             </div>
+
           </div>
         </div>
       </section>
     </>
   );
 }
+
 
 /* ============ BLOG POST ============ */
 
@@ -2469,8 +2265,8 @@ export function BlogPostPage({
               <p
                 key={`${post.slug}-${index}`}
                 className={`text-[17px] leading-8 text-[#3F4C5E] md:text-lg md:leading-9 ${index === 0
-                    ? "first-letter:float-left first-letter:mr-3 first-letter:mt-2 first-letter:font-display first-letter:text-6xl first-letter:font-black first-letter:leading-[0.75] first-letter:text-[#0845D4]"
-                    : "mt-7"
+                  ? "first-letter:float-left first-letter:mr-3 first-letter:mt-2 first-letter:font-display first-letter:text-6xl first-letter:font-black first-letter:leading-[0.75] first-letter:text-[#0845D4]"
+                  : "mt-7"
                   }`}
               >
                 {paragraph}

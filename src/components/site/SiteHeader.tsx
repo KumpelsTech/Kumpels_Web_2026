@@ -8,10 +8,9 @@ import { t } from "@/i18n/dict";
 const navKeys = [
   "home",
   "solutions",
-  "technology",
   "validation",
-  "investors",
   "blog",
+  "about",
   "contact",
 ] as const;
 
@@ -76,12 +75,6 @@ export function SiteHeader({ lang, pathname }: { lang: Lang; pathname: string })
             aria-label={L.language}
           >
             {otherLang}
-          </Link>
-          <Link
-            to={r.contact}
-            className="rounded-full border border-border bg-white px-4 py-2 text-sm font-semibold text-text-secondary hover:text-primary"
-          >
-            {L.contactUs}
           </Link>
           <a
             href="https://calendar.app.google/gxTKawMH6Vqkky1s5"

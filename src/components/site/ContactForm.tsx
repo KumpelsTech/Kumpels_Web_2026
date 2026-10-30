@@ -11,8 +11,8 @@ const schema = z.object({
   role: z.string().trim().max(100).optional().or(z.literal("")),
   phone: z.string().trim().max(50).optional().or(z.literal("")),
   institutionType: z.string().trim().max(100).optional().or(z.literal("")),
-  interest: z.string().trim().max(100),
-  message: z.string().trim().min(1).max(2000),
+  interest: z.string().trim().max(100).optional().or(z.literal("")),
+  message: z.string().trim().max(2000).optional().or(z.literal("")),
 });
 
 const SERVICE_ID = "service_00itei3";

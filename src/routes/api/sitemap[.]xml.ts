@@ -1,30 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "";
+const BASE_URL = "https://website.kumpels.com.co";
 
 const paths = [
   "/es",
   "/es/soluciones",
-  "/es/tecnologia",
-  "/es/vita-fertility",
   "/es/validacion",
-  "/es/inversionistas",
-  "/es/equipo",
-  "/es/nosotros",
   "/es/blog",
+  "/es/quienes-somos",
   "/es/contacto",
   "/es/privacidad",
   "/es/terminos",
   "/en",
   "/en/solutions",
-  "/en/technology",
-  "/en/vita-fertility",
   "/en/validation",
-  "/en/investors",
-  "/en/team",
-  "/en/about",
   "/en/blog",
+  "/en/about",
   "/en/contact",
   "/en/privacy",
   "/en/terms",

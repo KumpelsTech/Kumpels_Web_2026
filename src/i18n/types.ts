@@ -20,34 +20,34 @@ export const routeMap: Record<Lang, Record<RouteKey, string>> = {
   es: {
     home: "/es",
     solutions: "/es/soluciones",
-    technology: "/es/tecnologia",
-    vita: "/es/vita-fertility",
+    technology: "/es/soluciones",
+    vita: "/es/soluciones",
     validation: "/es/validacion",
     investors: "/es/inversionistas",
-    team: "/es/equipo",
-    about: "/es/nosotros",
+    team: "/es/quienes-somos",
+    about: "/es/quienes-somos",
     blog: "/es/blog",
-    news: "/es/noticias",
+    news: "/es/blog",
     contact: "/es/contacto",
     privacy: "/es/privacidad",
     terms: "/es/terminos",
-    benefits: "/es/beneficios",
+    benefits: "/es/soluciones",
   },
   en: {
     home: "/en",
     solutions: "/en/solutions",
-    technology: "/en/technology",
-    vita: "/en/vita-fertility",
+    technology: "/en/solutions",
+    vita: "/en/solutions",
     validation: "/en/validation",
     investors: "/en/investors",
-    team: "/en/team",
+    team: "/en/about",
     about: "/en/about",
     blog: "/en/blog",
-    news: "/en/news",
+    news: "/en/blog",
     contact: "/en/contact",
     privacy: "/en/privacy",
     terms: "/en/terms",
-    benefits: "/en/benefits",
+    benefits: "/en/solutions",
   },
 };
 
@@ -58,7 +58,7 @@ export function alternatePath(pathname: string, target: Lang): string {
   if (source === target) return pathname;
 
   const keys = (Object.keys(routeMap[source]) as RouteKey[])
-    .filter((key) => key !== "home")
+    .filter((key) => key !== "home" && !["technology", "vita", "team", "news", "benefits"].includes(key))
     .sort(
       (a, b) =>
         routeMap[source][b].length - routeMap[source][a].length

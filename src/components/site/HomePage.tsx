@@ -17,8 +17,9 @@ import {
   Hospital,
 } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
-import { SocialStrip } from "./SocialStrip";
-import { partners } from "@/content/site";
+import { Linkedin, Instagram } from "lucide-react";
+import { social } from "@/content/site";
+
 import { HeroCarousel } from "./HeroCarousel";
 
 import {
@@ -26,15 +27,22 @@ import {
   BrainCircuit,
 } from "lucide-react";
 
-const allyLogos = [
-  { name: "La Cardio", logo: "/images/icono-la-cardio.png" },
-  { name: "Siemens", logo: "/images/logo-siemens.webp" },
-  { name: "Social Skin", logo: "/images/icono-SK.jpg" },
-  { name: "Georgia Tech", logo: "/images/icono-GT.png" },
-  { name: "Hospital Nacional", logo: "/images/icono-hospitalnacional.png" },
-  { name: "VITA Fertility", logo: "/images/icono-vita-fertilidad.png" },
-  { name: "Fertility Dreams", logo: "/images/icono-fertility-dreams.jpg" },
-  { name: "Fondo Emprender", logo: "/images/icono-FES.png" },
+const allyLogos: { name: string; logo?: string; url?: string }[] = [
+  { name: "Fundación Cardioinfantil (La Cardio)", logo: "/images/icono-la-cardio.png", url: "https://fundacion.cardioinfantil.org/" },
+  { name: "Hospital Universitario Nacional de Colombia", logo: "/images/icono-hospitalnacional.png", url: "https://www.hun.edu.co/" },
+  { name: "VITA Fertilidad", logo: "/images/icono-vita-fertilidad.png" },
+  { name: "Siemens Healthineers", logo: "/images/logo-siemens.webp", url: "https://www.siemens-healthineers.com/" },
+  { name: "Social Skin (Grupo Bolívar)", logo: "/images/icono-SK.jpg", url: "https://socialskin.com/" },
+  { name: "Fondo Emprender", logo: "/images/icono-FES.png", url: "https://www.fondoemprender.com/" },
+  { name: "Georgia Tech Medellín Center", logo: "/images/icono-GT.png" },
+  { name: "Hub iEX" , logo: "/images/udelbosque.png"},
+  { name: "Universidad Nacional de Colombia", logo: "/images/unal.jpg", url: "https://unal.edu.co/" },
+  { name: "Ayuntamiento de Madrid (Talent Bridges)", logo: "/images/madridpuentes.png", url: "https://www.madrid.es/" },
+  { name: "Universidad del Rosario", logo: "/images/rosario.png", url: "https://urosario.edu.co/" },
+  { name: "Ruta Bogotá de Alto Impacto", logo: "/images/altoimpacto.png" },
+  { name: "Techstars", logo: "/images/techstars.png", url: "https://www.techstars.com/" },
+  { name: "MedTech Innovator", logo: "/images/medtech.png" ,url: "https://medtechinnovator.org/" },
+  { name: "Next Generation Digital Action", logo: "/images/next.png" },
 ];
 
 export function HomePage({ lang }: { lang: Lang }) {
@@ -56,7 +64,7 @@ export function HomePage({ lang }: { lang: Lang }) {
       <ImpactSection lang={lang} />
 
 
-      <SocialStrip lang={lang} />
+      <HomeSocialStrip lang={lang} />
 
       <FinalCTA lang={lang} />
     </>
@@ -64,19 +72,6 @@ export function HomePage({ lang }: { lang: Lang }) {
 }
 
 function PurposeAndMedicationFlow({ lang }: { lang: Lang }) {
-  const cards =
-    lang === "es"
-      ? [
-        { title: "Mision", desc: "Transformamos la atención sanitaria mejorando la seguridad del paciente, optimizando los flujos de trabajo y facilitando el acceso a una mejor atención mediante tecnología de vanguardia y colaboración estratégica.", icon: Brain },
-        { title: "Vision", desc: "Convertirse en un líder mundial en la eliminación de errores de medicación y en el impulso de la innovación sanitaria, garantizando una atención más segura, rápida y fiable para cada paciente.", icon: HeartPulse },
-        { title: "Nuestro Equipo", desc: "Un equipo apasionado y multidisciplinario que combina experiencia en salud, tecnología y negocios, comprometido a revolucionar la seguridad en la medicación y la eficiencia hospitalaria a nivel mundial.", icon: Network },
-      ]
-      : [
-        { title: "Innovation", desc: "We transform healthcare by enhancing patient safety, optimizing workflows, and improving access to better care through cutting-edge technology and strategic collaboration.", icon: Brain },
-        { title: "Care", desc: "To become a global leader in eliminating medication errors and driving healthcare innovation, ensuring safer, faster, and more reliable care for every patient.", icon: HeartPulse },
-        { title: "Traceability", desc: "A passionate and multidisciplinary team combining expertise in healthcare, technology, and business, committed to revolutionizing medication safety and hospital efficiency worldwide.", icon: Network },
-      ];
-
   const steps =
     lang === "es"
       ? [
@@ -116,8 +111,7 @@ function PurposeAndMedicationFlow({ lang }: { lang: Lang }) {
                     {step.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-5 text-[#4b5563] md:text-base">
-                  </p>
+
                 </Reveal>
               );
             })}
@@ -125,6 +119,9 @@ function PurposeAndMedicationFlow({ lang }: { lang: Lang }) {
 
           <div className="lg:col-span-7 lg:pl-10">
 
+            <Reveal className="text-xs font-bold uppercase tracking-[0.16em] text-[#0845D4]">
+              {lang === "es" ? "Plataforma para salvar vidas: medicación más segura + operaciones fluidas" : "A platform to save lives: safer medication + seamless operations"}
+            </Reveal>
             <Reveal
               as="h2"
               delay={0.08}
@@ -153,8 +150,8 @@ function PurposeAndMedicationFlow({ lang }: { lang: Lang }) {
               className="mt-7 max-w-2xl text-base leading-7 text-[#30303a] md:text-lg"
             >
               {lang === "es"
-                ? "Kumpels conecta prescripción, validación, dispensación y administración para que cada medicamento llegue al paciente con mayor seguridad, trazabilidad y control clínico-operacional."
-                : "Kumpels connects prescription, validation, dispensing and administration so every medication reaches the patient with greater safety, traceability and clinical-operational control."}
+                ? "Kumpels Core conecta prescripción, validación, dispensación y administración para que cada medicamento llegue al paciente con mayor seguridad, trazabilidad y control clínico-operacional. No reemplaza su HIS, su ERP ni su software de farmacia: coordina el trabajo entre ellos."
+                : "Kumpels Core connects prescribing, validation, dispensing and administration so every medication reaches the patient with greater safety, traceability and clinical-operational oversight. It does not replace your HIS, ERP or pharmacy software: it coordinates work across them."}
             </Reveal>
 
             <Reveal
@@ -238,7 +235,7 @@ function PurposeAndMedicationFlow({ lang }: { lang: Lang }) {
             <Reveal className="mt-8 flex justify-center">
               <img
                 src="/images/Logo-Kumpels-blanco.svg"
-                alt="Kumpels IUS"
+                alt="Kumpels"
                 className="h-auto w-[240px] drop-shadow-[0_16px_45px_rgba(255,255,255,0.22)] md:w-[340px] lg:w-[410px]"
                 draggable={false}
               />
@@ -279,39 +276,18 @@ function PurposeAndMedicationFlow({ lang }: { lang: Lang }) {
             </Reveal>
           </div>
 
-          <div className="relative z-20 mx-auto mt-16 grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {cards.map((card, index) => {
-              const Icon = card.icon;
-
-              return (
-                <Reveal
-                  key={card.title}
-                  delay={index * 0.06}
-                  className="group flex min-h-[230px] flex-col rounded-[30px] border border-white/70 bg-white/95 p-7 shadow-[0_28px_70px_rgba(8,69,212,0.18)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white hover:shadow-[0_40px_90px_rgba(8,69,212,0.26)]"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0845D4]/10">
-                    <Icon
-                      className="h-8 w-8 text-[#0845D4] transition duration-300 group-hover:scale-110"
-                      strokeWidth={1.8}
-                    />
-                  </div>
-
-                  <h3 className="mt-6 text-xl font-extrabold text-[#111827]">
-                    {card.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-[#4b5563]">
-                    {card.desc}
-                  </p>
-                </Reveal>
-              );
-            })}
+          <div className="relative z-20 mt-10 flex justify-center">
+            <Link to={routeMap[lang].about} className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-bold text-[#0845D4] shadow-[0_18px_45px_rgba(8,69,212,0.20)] transition hover:-translate-y-0.5">
+              {lang === "es" ? "Conoce quiénes somos" : "Get to know us"}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 function AlliesCarousel({ lang }: { lang: Lang }) {
   const repeated = [...allyLogos, ...allyLogos];
@@ -325,34 +301,76 @@ function AlliesCarousel({ lang }: { lang: Lang }) {
         }
 
         .kumpels-marquee-track {
-          animation: kumpels-marquee 32s linear infinite;
+          animation: kumpels-marquee 55s linear infinite;
         }
 
         .kumpels-marquee:hover .kumpels-marquee-track {
           animation-play-state: paused;
         }
+
+        @media (prefers-reduced-motion: reduce) {
+          .kumpels-marquee-track {
+            animation: none;
+          }
+        }
       `}</style>
+
+      <p className="container-page mb-4 text-center text-xs font-bold uppercase tracking-[0.18em] text-[#071B52]">
+        {lang === "es"
+          ? "Ellos ya han confiado en Kumpels"
+          : "They have already placed their trust in Kumpels"}
+      </p>
 
       <div className="kumpels-marquee relative w-screen overflow-hidden py-6">
         <div className="kumpels-marquee-track flex w-max items-center gap-5">
-          {repeated.map((ally, index) => (
-            <div
-              key={`${ally.name}-${index}`}
-              className="flex h-28 w-44 shrink-0 items-center justify-center rounded-3xl border border-border bg-white px-6 shadow-soft transition hover:-translate-y-1 hover:shadow-elevated"
-            >
-              <img
-                src={ally.logo}
-                alt={ally.name}
-                className="max-h-16 max-w-32 object-contain transition duration-300"
-                loading="lazy"
-              />
-            </div>
-          ))}
+          {repeated.map((ally, index) => {
+            const content = (
+              <>
+                {ally.logo && (
+                  <img
+                    src={ally.logo}
+                    alt={ally.name}
+                    className="max-h-20 max-w-36 object-contain"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                )}
+              </>
+            );
+
+            const cls =
+              "flex h-32 w-48 shrink-0 items-center justify-center rounded-3xl border border-border bg-white px-4 shadow-soft transition hover:-translate-y-1 hover:shadow-elevated";
+
+            return ally.url ? (
+              <a
+                key={`${ally.name}-${index}`}
+                className={cls}
+                href={ally.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={ally.name}
+                title={ally.name}
+              >
+                {content}
+              </a>
+            ) : (
+              <div
+                key={`${ally.name}-${index}`}
+                className={cls}
+                title={ally.name}
+              >
+                {content}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
+
 
 function VolunteerBand({ lang }: { lang: Lang }) {
   return (
@@ -382,12 +400,12 @@ function VolunteerBand({ lang }: { lang: Lang }) {
                 : "Join us as a partner and help us bring safer technology to more healthcare institutions."}
             </p>
 
-            <a
-              href="https://calendar.app.google/gxTKawMH6Vqkky1s5"
+            <Link
+              to={routeMap[lang].contact}
               className="mt-8 inline-flex rounded-full bg-gradient-to-r from-[#0845D4] to-[#27B8FF] px-8 py-3 text-sm font-bold text-white shadow-[0_18px_45px_rgba(39,184,255,0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(39,184,255,0.38)]"
             >
-              {lang === "es" ? "Quiero ser aliado" : "Book a demo"}
-            </a>
+              {lang === "es" ? "Quiero ser aliado" : "Become a partner"}
+            </Link>
           </div>
 
           <div className="relative hidden min-h-[180px] lg:col-span-3 lg:block">
@@ -406,252 +424,61 @@ function VolunteerBand({ lang }: { lang: Lang }) {
   );
 }
 function ImpactSection({ lang }: { lang: Lang }) {
-  const content =
-    lang === "es"
-      ? {
-        title: "Impacto clínico y operativo",
-        subtitle:
-          "Resultados medibles que reflejan cómo Kumpels transforma la seguridad del medicamento en hospitales.",
-        note:
-          "*Proyección basada en un hospital de 350 camas a partir de pilotos iniciales.",
-        stats: [
-          {
-            value: "USD 930K",
-            title: "Ahorro anual",
-            description: "Estimado por hospital gracias a una operación más eficiente.",
-            accent: "yellow",
-          },
-          {
-            value: "100%",
-            title: "Prescripciones validadas",
-            description:
-              "Revisión sistemática para fortalecer la seguridad del paciente.",
-            accent: "blue",
-          },
-          {
-            value: "92 h",
-            title: "Horas ahorradas diariamente",
-            description:
-              "Tiempo liberado para que el personal de farmacia se enfoque en tareas de mayor valor.",
-            accent: "yellow",
-          },
-          {
-            value: "8%",
-            title: "Errores de medicación detectados",
-            description:
-              "Intervenciones mensuales que permiten prevenir riesgos antes de que lleguen al paciente.",
-            accent: "blue",
-          },
-          {
-            value: "10+",
-            title: "Hospitales",
-            description:
-              "Instituciones que utilizan o han validado tecnología desarrollada por Kumpels.",
-            accent: "yellow",
-          },
-        ],
-      }
-      : {
-        eyebrow: "Results",
-        title: "Clinical and operational impact",
-        subtitle:
-          "Measurable outcomes showing how Kumpels transforms medication safety across hospitals.",
-        note:
-          "*Projection based on a 350-bed hospital using data from initial pilot programs.",
-        stats: [
-          {
-            value: "USD 930K",
-            title: "Annual savings",
-            description:
-              "Estimated per hospital through more efficient clinical operations.",
-            accent: "yellow",
-          },
-          {
-            value: "100%",
-            title: "Prescriptions validated",
-            description:
-              "Systematic review designed to strengthen patient safety.",
-            accent: "blue",
-          },
-          {
-            value: "92 h",
-            title: "Hours saved daily",
-            description:
-              "Time returned to pharmacy teams for higher-value clinical work.",
-            accent: "yellow",
-          },
-          {
-            value: "8%",
-            title: "Medication errors detected",
-            description:
-              "Monthly interventions that help prevent risks before they reach patients.",
-            accent: "blue",
-          },
-          {
-            value: "10+",
-            title: "Hospitals",
-            description:
-              "Institutions using or validating technology developed by Kumpels.",
-            accent: "yellow",
-          },
-        ],
-      };
-
-  const [savings, validation, hours, errors, hospitals] = content.stats;
-
-  const Stat = ({
-    stat,
-    className = "",
-  }: {
-    stat: (typeof content.stats)[number];
-    className?: string;
-  }) => {
-    const accentColor =
-      stat.accent === "yellow" ? "text-[#F7BA2B]" : "text-[#27B8FF]";
-
-    return (
-      <Reveal
-        className={`relative flex min-h-[240px] flex-col items-center justify-center px-5 py-8 text-center md:px-8 ${className}`}
-      >
-        <p
-          className={`font-display text-5xl font-black leading-none tracking-[-0.04em] sm:text-6xl lg:text-7xl ${accentColor}`}
-        >
-          {stat.value}
-        </p>
-
-        <h3 className="mt-5 text-xl font-bold leading-tight text-white sm:text-2xl">
-          {stat.title}
-        </h3>
-
-        <p className="mt-2 max-w-[390px] text-sm leading-6 text-white/70 sm:text-base">
-          {stat.description}
-        </p>
-      </Reveal>
-    );
-  };
-
+  const es = lang === "es";
+  const metrics = es ? [
+    { value: "+1.900", label: "Pacientes trazados" },
+    { value: "89%", label: "Menos tiempo en reprocesos administrativos" },
+    { value: "+100 h", label: "Horas-hombre ahorradas al día en el hospital" },
+    { value: "+COP 350 M", label: "Ahorro anual: operativo directo + impacto clínico asociado" },
+  ] : [
+    { value: "1,900+", label: "Patients tracked" },
+    { value: "89%", label: "Less time spent on administrative rework" },
+    { value: "100+ h", label: "Staff hours saved per day across the hospital" },
+    { value: "COP 350M+", label: "Annual savings: direct operational + associated clinical impact" },
+  ];
   return (
-    <section className="relative overflow-hidden bg-[#071B52] py-20 text-white sm:py-24 lg:py-28">
-      {/* Fondos decorativos */}
+    <section className="relative overflow-hidden bg-[#071B52] py-16 text-white md:py-20">
       <div className="pointer-events-none absolute -left-40 -top-40 h-[420px] w-[420px] rounded-full bg-[#F7BA2B]/10 blur-[120px]" />
       <div className="pointer-events-none absolute -right-40 top-20 h-[460px] w-[460px] rounded-full bg-[#27B8FF]/10 blur-[130px]" />
-      <div className="pointer-events-none absolute bottom-[-220px] left-1/2 h-[420px] w-[700px] -translate-x-1/2 rounded-full bg-[#0845D4]/20 blur-[150px]" />
-
       <div className="container-page relative z-10">
-        {/* Encabezado */}
         <Reveal className="mx-auto max-w-4xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#F7BA2B] sm:text-sm">
-            {content.eyebrow}
-          </p>
-
-          <h2 className="mt-4 font-display text-4xl font-black leading-[1.05] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
-            {content.title}
+          <h2 className="font-display text-3xl font-black leading-tight text-white md:text-5xl">
+            {es ? "Resultados de un piloto hospitalario real" : "Results from a real hospital pilot"}
           </h2>
-
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-white/75 sm:text-lg">
-            {content.subtitle}
+          <p className="mt-4 text-base text-white/75">
+            {es ? "Fundación Cardioinfantil · septiembre a diciembre de 2025" : "Fundación Cardioinfantil · September to December 2025"}
           </p>
         </Reveal>
-
-        {/* Primera fila */}
-        <div className="relative mt-14 lg:mt-20">
-          <div className="grid md:grid-cols-3">
-            <Stat stat={savings} />
-
-            <Stat
-              stat={validation}
-              className="
-                border-t border-white/10
-                md:border-l md:border-t-0
-              "
-            />
-
-            <Stat
-              stat={hours}
-              className="
-                border-t border-white/10
-                md:border-l md:border-t-0
-              "
-            />
-          </div>
-
-          {/* Línea central divisoria */}
-          <div className="relative my-2 flex items-center sm:my-5">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#27B8FF]/70 to-[#27B8FF]/30" />
-
-            <div className="mx-5 h-2.5 w-2.5 rotate-45 border border-[#F7BA2B]/80 bg-[#071B52]" />
-
-            <div className="h-px flex-1 bg-gradient-to-r from-[#F7BA2B]/30 via-[#F7BA2B]/70 to-transparent" />
-          </div>
-
-          {/* Segunda fila */}
-          <div className="relative grid md:grid-cols-2">
-            <Stat stat={errors} />
-
-            <Stat
-              stat={hospitals}
-              className="
-                border-t border-white/10
-                md:border-l md:border-t-0
-              "
-            />
-
-            {/* Líneas laterales similares a la referencia */}
-            <div className="pointer-events-none absolute left-[-45vw] top-1/2 hidden h-px w-[45vw] bg-gradient-to-r from-transparent to-[#27B8FF]/70 lg:block" />
-
-            <div className="pointer-events-none absolute right-[-45vw] top-1/2 hidden h-px w-[45vw] bg-gradient-to-l from-transparent to-[#F7BA2B]/70 lg:block" />
-          </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
+          {metrics.map((m) => <Link key={m.value} to={routeMap[lang].validation} hash="la-cardio" className="group flex min-h-44 flex-col items-center justify-center rounded-2xl border border-white/15 bg-white/[0.05] p-4 text-center transition hover:bg-white/[0.10]">
+            <span className="font-display text-3xl font-black text-[#27B8FF] md:text-4xl">{m.value}</span>
+            <span className="mt-3 text-sm font-semibold leading-snug text-white/85">{m.label}</span>
+          </Link>)}
         </div>
-
-        {/* Nota metodológica */}
-        <Reveal className="mt-12 text-center">
-          <p className="inline-flex max-w-3xl items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-xs leading-5 text-white/50 backdrop-blur-sm sm:text-sm">
-            {content.note}
-          </p>
-        </Reveal>
+        <div className="mt-9 text-center">
+          <Link to={routeMap[lang].validation} hash="la-cardio" className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10">
+            {es ? "Ver validación completa" : "See full validation"}<ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
 
-function InvestorsBand({ lang }: { lang: Lang }) {
-  const L = t(lang).home;
-  const r = routeMap[lang];
-
-  return (
-    <section className="container-page pb-16">
-      <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#655db3] to-[#282653] p-8 shadow-elevated md:p-12">
-        <div
-          aria-hidden
-          className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-cyan-300/30 blur-3xl"
-        />
-
-        <div className="relative grid gap-6 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-8">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-white">
-            </span>
-
-            <h2 className="mt-4 font-display text-3xl font-bold text-white md:text-5xl">
-              {L.investorsTeaser.title}
-            </h2>
-
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85">
-              {L.investorsTeaser.desc}
-            </p>
-          </div>
-
-          <div className="lg:col-span-4 lg:text-right">
-            <Link
-              to={r.investors}
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary shadow-elevated hover:bg-white/95"
-            >
-              {L.investorsTeaser.cta} <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
+function HomeSocialStrip({ lang }: { lang: Lang }) {
+  const items = [
+    { name: "LinkedIn", href: social.linkedin, icon: Linkedin },
+    { name: "Instagram", href: social.instagram, icon: Instagram },
+  ];
+  return <section className="bg-[#f5f8ff] py-6">
+    <div className="container-page flex flex-wrap items-center justify-center gap-5 md:justify-between">
+      <h2 className="font-display text-xl font-bold text-[#071B52]">{lang === "es" ? "Conecta con Kumpels" : "Connect with Kumpels"}</h2>
+      <div className="flex items-center gap-3">
+        {items.map(({name,href,icon:Icon}) => <a key={name} href={href} target="_blank" rel="noopener noreferrer" aria-label={name} title={name} className="flex h-11 w-11 items-center justify-center rounded-full border border-[#0845D4]/20 bg-white text-[#0845D4] transition hover:-translate-y-0.5"><Icon className="h-5 w-5" /></a>)}
+        <a href={social.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" className="flex h-11 w-11 items-center justify-center rounded-full border border-[#0845D4]/20 bg-white text-[#0845D4] transition hover:-translate-y-0.5"><svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true"><path d="M16.5 3a5.5 5.5 0 0 0 5 5v3a8.5 8.5 0 0 1-5-1.6V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3h3z" /></svg></a>
       </div>
-    </section>
-  );
+    </div>
+  </section>;
 }
 
 function FinalCTA({ lang }: { lang: Lang }) {

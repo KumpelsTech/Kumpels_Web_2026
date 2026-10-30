@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ValidationPage } from "@/components/site/pages";
+import { CoreValidationPage } from "@/components/site/CoreValidationPage";
 export const Route = createFileRoute("/es/validacion")({
   head: () => ({
     meta: [
-      { title: "Validación — Kumpels" },
-      { name: "description", content: "Camino de validación, instituciones aliadas, métricas y casos de piloto." },
+      { title: "Validación en entornos reales — Kumpels" },
+      { name: "description", content: "Resultados del piloto hospitalario de La Cardio y diagnóstico operativo de VITA Fertilidad." },
       { property: "og:title", content: "Validación — Kumpels" },
       { property: "og:url", content: "/es/validacion" },
     ],
@@ -14,5 +14,5 @@ export const Route = createFileRoute("/es/validacion")({
       { rel: "alternate", hrefLang: "en", href: "/en/validation" },
     ],
   }),
-  component: () => <ValidationPage lang="es" />,
+  component: () => <CoreValidationPage lang="es" />,
 });

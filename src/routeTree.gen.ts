@@ -19,26 +19,21 @@ import { Route as EsValidacionRouteImport } from './routes/es.validacion'
 import { Route as EsTerminosRouteImport } from './routes/es.terminos'
 import { Route as EsTecnologiaRouteImport } from './routes/es.tecnologia'
 import { Route as EsSolucionesRouteImport } from './routes/es.soluciones'
+import { Route as EsQuienesSomosRouteImport } from './routes/es.quienes-somos'
 import { Route as EsPrivacidadRouteImport } from './routes/es.privacidad'
-import { Route as EsNoticiasRouteImport } from './routes/es.noticias'
 import { Route as EsNosotrosRouteImport } from './routes/es.nosotros'
 import { Route as EsInversionistasRouteImport } from './routes/es.inversionistas'
-import { Route as EsEquipoRouteImport } from './routes/es.equipo'
 import { Route as EsContactoRouteImport } from './routes/es.contacto'
 import { Route as EsBlogRouteImport } from './routes/es.blog'
-import { Route as EsBeneficiosRouteImport } from './routes/es.beneficios'
 import { Route as EnVitaFertilityRouteImport } from './routes/en.vita-fertility'
 import { Route as EnValidationRouteImport } from './routes/en.validation'
 import { Route as EnTermsRouteImport } from './routes/en.terms'
 import { Route as EnTechnologyRouteImport } from './routes/en.technology'
-import { Route as EnTeamRouteImport } from './routes/en.team'
 import { Route as EnSolutionsRouteImport } from './routes/en.solutions'
 import { Route as EnPrivacyRouteImport } from './routes/en.privacy'
-import { Route as EnNewsRouteImport } from './routes/en.news'
 import { Route as EnInvestorsRouteImport } from './routes/en.investors'
 import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnBlogRouteImport } from './routes/en.blog'
-import { Route as EnBenefitsRouteImport } from './routes/en.benefits'
 import { Route as EnAboutRouteImport } from './routes/en.about'
 import { Route as ApiSitemapDotxmlRouteImport } from './routes/api/sitemap[.]xml'
 import { Route as EsBlogSlugRouteImport } from './routes/es.blog.$slug'
@@ -94,14 +89,14 @@ const EsSolucionesRoute = EsSolucionesRouteImport.update({
   path: '/soluciones',
   getParentRoute: () => EsRoute,
 } as any)
+const EsQuienesSomosRoute = EsQuienesSomosRouteImport.update({
+  id: '/quienes-somos',
+  path: '/quienes-somos',
+  getParentRoute: () => EsRoute,
+} as any)
 const EsPrivacidadRoute = EsPrivacidadRouteImport.update({
   id: '/privacidad',
   path: '/privacidad',
-  getParentRoute: () => EsRoute,
-} as any)
-const EsNoticiasRoute = EsNoticiasRouteImport.update({
-  id: '/noticias',
-  path: '/noticias',
   getParentRoute: () => EsRoute,
 } as any)
 const EsNosotrosRoute = EsNosotrosRouteImport.update({
@@ -114,11 +109,6 @@ const EsInversionistasRoute = EsInversionistasRouteImport.update({
   path: '/inversionistas',
   getParentRoute: () => EsRoute,
 } as any)
-const EsEquipoRoute = EsEquipoRouteImport.update({
-  id: '/equipo',
-  path: '/equipo',
-  getParentRoute: () => EsRoute,
-} as any)
 const EsContactoRoute = EsContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
@@ -127,11 +117,6 @@ const EsContactoRoute = EsContactoRouteImport.update({
 const EsBlogRoute = EsBlogRouteImport.update({
   id: '/blog',
   path: '/blog',
-  getParentRoute: () => EsRoute,
-} as any)
-const EsBeneficiosRoute = EsBeneficiosRouteImport.update({
-  id: '/beneficios',
-  path: '/beneficios',
   getParentRoute: () => EsRoute,
 } as any)
 const EnVitaFertilityRoute = EnVitaFertilityRouteImport.update({
@@ -154,11 +139,6 @@ const EnTechnologyRoute = EnTechnologyRouteImport.update({
   path: '/technology',
   getParentRoute: () => EnRoute,
 } as any)
-const EnTeamRoute = EnTeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => EnRoute,
-} as any)
 const EnSolutionsRoute = EnSolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -167,11 +147,6 @@ const EnSolutionsRoute = EnSolutionsRouteImport.update({
 const EnPrivacyRoute = EnPrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
-  getParentRoute: () => EnRoute,
-} as any)
-const EnNewsRoute = EnNewsRouteImport.update({
-  id: '/news',
-  path: '/news',
   getParentRoute: () => EnRoute,
 } as any)
 const EnInvestorsRoute = EnInvestorsRouteImport.update({
@@ -187,11 +162,6 @@ const EnContactRoute = EnContactRouteImport.update({
 const EnBlogRoute = EnBlogRouteImport.update({
   id: '/blog',
   path: '/blog',
-  getParentRoute: () => EnRoute,
-} as any)
-const EnBenefitsRoute = EnBenefitsRouteImport.update({
-  id: '/benefits',
-  path: '/benefits',
   getParentRoute: () => EnRoute,
 } as any)
 const EnAboutRoute = EnAboutRouteImport.update({
@@ -221,26 +191,21 @@ export interface FileRoutesByFullPath {
   '/es': typeof EsRouteWithChildren
   '/api/sitemap.xml': typeof ApiSitemapDotxmlRoute
   '/en/about': typeof EnAboutRoute
-  '/en/benefits': typeof EnBenefitsRoute
   '/en/blog': typeof EnBlogRouteWithChildren
   '/en/contact': typeof EnContactRoute
   '/en/investors': typeof EnInvestorsRoute
-  '/en/news': typeof EnNewsRoute
   '/en/privacy': typeof EnPrivacyRoute
   '/en/solutions': typeof EnSolutionsRoute
-  '/en/team': typeof EnTeamRoute
   '/en/technology': typeof EnTechnologyRoute
   '/en/terms': typeof EnTermsRoute
   '/en/validation': typeof EnValidationRoute
   '/en/vita-fertility': typeof EnVitaFertilityRoute
-  '/es/beneficios': typeof EsBeneficiosRoute
   '/es/blog': typeof EsBlogRouteWithChildren
   '/es/contacto': typeof EsContactoRoute
-  '/es/equipo': typeof EsEquipoRoute
   '/es/inversionistas': typeof EsInversionistasRoute
   '/es/nosotros': typeof EsNosotrosRoute
-  '/es/noticias': typeof EsNoticiasRoute
   '/es/privacidad': typeof EsPrivacidadRoute
+  '/es/quienes-somos': typeof EsQuienesSomosRoute
   '/es/soluciones': typeof EsSolucionesRoute
   '/es/tecnologia': typeof EsTecnologiaRoute
   '/es/terminos': typeof EsTerminosRoute
@@ -255,26 +220,21 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/sitemap.xml': typeof ApiSitemapDotxmlRoute
   '/en/about': typeof EnAboutRoute
-  '/en/benefits': typeof EnBenefitsRoute
   '/en/blog': typeof EnBlogRouteWithChildren
   '/en/contact': typeof EnContactRoute
   '/en/investors': typeof EnInvestorsRoute
-  '/en/news': typeof EnNewsRoute
   '/en/privacy': typeof EnPrivacyRoute
   '/en/solutions': typeof EnSolutionsRoute
-  '/en/team': typeof EnTeamRoute
   '/en/technology': typeof EnTechnologyRoute
   '/en/terms': typeof EnTermsRoute
   '/en/validation': typeof EnValidationRoute
   '/en/vita-fertility': typeof EnVitaFertilityRoute
-  '/es/beneficios': typeof EsBeneficiosRoute
   '/es/blog': typeof EsBlogRouteWithChildren
   '/es/contacto': typeof EsContactoRoute
-  '/es/equipo': typeof EsEquipoRoute
   '/es/inversionistas': typeof EsInversionistasRoute
   '/es/nosotros': typeof EsNosotrosRoute
-  '/es/noticias': typeof EsNoticiasRoute
   '/es/privacidad': typeof EsPrivacidadRoute
+  '/es/quienes-somos': typeof EsQuienesSomosRoute
   '/es/soluciones': typeof EsSolucionesRoute
   '/es/tecnologia': typeof EsTecnologiaRoute
   '/es/terminos': typeof EsTerminosRoute
@@ -292,26 +252,21 @@ export interface FileRoutesById {
   '/es': typeof EsRouteWithChildren
   '/api/sitemap.xml': typeof ApiSitemapDotxmlRoute
   '/en/about': typeof EnAboutRoute
-  '/en/benefits': typeof EnBenefitsRoute
   '/en/blog': typeof EnBlogRouteWithChildren
   '/en/contact': typeof EnContactRoute
   '/en/investors': typeof EnInvestorsRoute
-  '/en/news': typeof EnNewsRoute
   '/en/privacy': typeof EnPrivacyRoute
   '/en/solutions': typeof EnSolutionsRoute
-  '/en/team': typeof EnTeamRoute
   '/en/technology': typeof EnTechnologyRoute
   '/en/terms': typeof EnTermsRoute
   '/en/validation': typeof EnValidationRoute
   '/en/vita-fertility': typeof EnVitaFertilityRoute
-  '/es/beneficios': typeof EsBeneficiosRoute
   '/es/blog': typeof EsBlogRouteWithChildren
   '/es/contacto': typeof EsContactoRoute
-  '/es/equipo': typeof EsEquipoRoute
   '/es/inversionistas': typeof EsInversionistasRoute
   '/es/nosotros': typeof EsNosotrosRoute
-  '/es/noticias': typeof EsNoticiasRoute
   '/es/privacidad': typeof EsPrivacidadRoute
+  '/es/quienes-somos': typeof EsQuienesSomosRoute
   '/es/soluciones': typeof EsSolucionesRoute
   '/es/tecnologia': typeof EsTecnologiaRoute
   '/es/terminos': typeof EsTerminosRoute
@@ -330,26 +285,21 @@ export interface FileRouteTypes {
     | '/es'
     | '/api/sitemap.xml'
     | '/en/about'
-    | '/en/benefits'
     | '/en/blog'
     | '/en/contact'
     | '/en/investors'
-    | '/en/news'
     | '/en/privacy'
     | '/en/solutions'
-    | '/en/team'
     | '/en/technology'
     | '/en/terms'
     | '/en/validation'
     | '/en/vita-fertility'
-    | '/es/beneficios'
     | '/es/blog'
     | '/es/contacto'
-    | '/es/equipo'
     | '/es/inversionistas'
     | '/es/nosotros'
-    | '/es/noticias'
     | '/es/privacidad'
+    | '/es/quienes-somos'
     | '/es/soluciones'
     | '/es/tecnologia'
     | '/es/terminos'
@@ -364,26 +314,21 @@ export interface FileRouteTypes {
     | '/'
     | '/api/sitemap.xml'
     | '/en/about'
-    | '/en/benefits'
     | '/en/blog'
     | '/en/contact'
     | '/en/investors'
-    | '/en/news'
     | '/en/privacy'
     | '/en/solutions'
-    | '/en/team'
     | '/en/technology'
     | '/en/terms'
     | '/en/validation'
     | '/en/vita-fertility'
-    | '/es/beneficios'
     | '/es/blog'
     | '/es/contacto'
-    | '/es/equipo'
     | '/es/inversionistas'
     | '/es/nosotros'
-    | '/es/noticias'
     | '/es/privacidad'
+    | '/es/quienes-somos'
     | '/es/soluciones'
     | '/es/tecnologia'
     | '/es/terminos'
@@ -400,26 +345,21 @@ export interface FileRouteTypes {
     | '/es'
     | '/api/sitemap.xml'
     | '/en/about'
-    | '/en/benefits'
     | '/en/blog'
     | '/en/contact'
     | '/en/investors'
-    | '/en/news'
     | '/en/privacy'
     | '/en/solutions'
-    | '/en/team'
     | '/en/technology'
     | '/en/terms'
     | '/en/validation'
     | '/en/vita-fertility'
-    | '/es/beneficios'
     | '/es/blog'
     | '/es/contacto'
-    | '/es/equipo'
     | '/es/inversionistas'
     | '/es/nosotros'
-    | '/es/noticias'
     | '/es/privacidad'
+    | '/es/quienes-somos'
     | '/es/soluciones'
     | '/es/tecnologia'
     | '/es/terminos'
@@ -510,18 +450,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EsSolucionesRouteImport
       parentRoute: typeof EsRoute
     }
+    '/es/quienes-somos': {
+      id: '/es/quienes-somos'
+      path: '/quienes-somos'
+      fullPath: '/es/quienes-somos'
+      preLoaderRoute: typeof EsQuienesSomosRouteImport
+      parentRoute: typeof EsRoute
+    }
     '/es/privacidad': {
       id: '/es/privacidad'
       path: '/privacidad'
       fullPath: '/es/privacidad'
       preLoaderRoute: typeof EsPrivacidadRouteImport
-      parentRoute: typeof EsRoute
-    }
-    '/es/noticias': {
-      id: '/es/noticias'
-      path: '/noticias'
-      fullPath: '/es/noticias'
-      preLoaderRoute: typeof EsNoticiasRouteImport
       parentRoute: typeof EsRoute
     }
     '/es/nosotros': {
@@ -538,13 +478,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EsInversionistasRouteImport
       parentRoute: typeof EsRoute
     }
-    '/es/equipo': {
-      id: '/es/equipo'
-      path: '/equipo'
-      fullPath: '/es/equipo'
-      preLoaderRoute: typeof EsEquipoRouteImport
-      parentRoute: typeof EsRoute
-    }
     '/es/contacto': {
       id: '/es/contacto'
       path: '/contacto'
@@ -557,13 +490,6 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/es/blog'
       preLoaderRoute: typeof EsBlogRouteImport
-      parentRoute: typeof EsRoute
-    }
-    '/es/beneficios': {
-      id: '/es/beneficios'
-      path: '/beneficios'
-      fullPath: '/es/beneficios'
-      preLoaderRoute: typeof EsBeneficiosRouteImport
       parentRoute: typeof EsRoute
     }
     '/en/vita-fertility': {
@@ -594,13 +520,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnTechnologyRouteImport
       parentRoute: typeof EnRoute
     }
-    '/en/team': {
-      id: '/en/team'
-      path: '/team'
-      fullPath: '/en/team'
-      preLoaderRoute: typeof EnTeamRouteImport
-      parentRoute: typeof EnRoute
-    }
     '/en/solutions': {
       id: '/en/solutions'
       path: '/solutions'
@@ -613,13 +532,6 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/en/privacy'
       preLoaderRoute: typeof EnPrivacyRouteImport
-      parentRoute: typeof EnRoute
-    }
-    '/en/news': {
-      id: '/en/news'
-      path: '/news'
-      fullPath: '/en/news'
-      preLoaderRoute: typeof EnNewsRouteImport
       parentRoute: typeof EnRoute
     }
     '/en/investors': {
@@ -641,13 +553,6 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/en/blog'
       preLoaderRoute: typeof EnBlogRouteImport
-      parentRoute: typeof EnRoute
-    }
-    '/en/benefits': {
-      id: '/en/benefits'
-      path: '/benefits'
-      fullPath: '/en/benefits'
-      preLoaderRoute: typeof EnBenefitsRouteImport
       parentRoute: typeof EnRoute
     }
     '/en/about': {
@@ -694,14 +599,11 @@ const EnBlogRouteWithChildren =
 
 interface EnRouteChildren {
   EnAboutRoute: typeof EnAboutRoute
-  EnBenefitsRoute: typeof EnBenefitsRoute
   EnBlogRoute: typeof EnBlogRouteWithChildren
   EnContactRoute: typeof EnContactRoute
   EnInvestorsRoute: typeof EnInvestorsRoute
-  EnNewsRoute: typeof EnNewsRoute
   EnPrivacyRoute: typeof EnPrivacyRoute
   EnSolutionsRoute: typeof EnSolutionsRoute
-  EnTeamRoute: typeof EnTeamRoute
   EnTechnologyRoute: typeof EnTechnologyRoute
   EnTermsRoute: typeof EnTermsRoute
   EnValidationRoute: typeof EnValidationRoute
@@ -711,14 +613,11 @@ interface EnRouteChildren {
 
 const EnRouteChildren: EnRouteChildren = {
   EnAboutRoute: EnAboutRoute,
-  EnBenefitsRoute: EnBenefitsRoute,
   EnBlogRoute: EnBlogRouteWithChildren,
   EnContactRoute: EnContactRoute,
   EnInvestorsRoute: EnInvestorsRoute,
-  EnNewsRoute: EnNewsRoute,
   EnPrivacyRoute: EnPrivacyRoute,
   EnSolutionsRoute: EnSolutionsRoute,
-  EnTeamRoute: EnTeamRoute,
   EnTechnologyRoute: EnTechnologyRoute,
   EnTermsRoute: EnTermsRoute,
   EnValidationRoute: EnValidationRoute,
@@ -740,14 +639,12 @@ const EsBlogRouteWithChildren =
   EsBlogRoute._addFileChildren(EsBlogRouteChildren)
 
 interface EsRouteChildren {
-  EsBeneficiosRoute: typeof EsBeneficiosRoute
   EsBlogRoute: typeof EsBlogRouteWithChildren
   EsContactoRoute: typeof EsContactoRoute
-  EsEquipoRoute: typeof EsEquipoRoute
   EsInversionistasRoute: typeof EsInversionistasRoute
   EsNosotrosRoute: typeof EsNosotrosRoute
-  EsNoticiasRoute: typeof EsNoticiasRoute
   EsPrivacidadRoute: typeof EsPrivacidadRoute
+  EsQuienesSomosRoute: typeof EsQuienesSomosRoute
   EsSolucionesRoute: typeof EsSolucionesRoute
   EsTecnologiaRoute: typeof EsTecnologiaRoute
   EsTerminosRoute: typeof EsTerminosRoute
@@ -757,14 +654,12 @@ interface EsRouteChildren {
 }
 
 const EsRouteChildren: EsRouteChildren = {
-  EsBeneficiosRoute: EsBeneficiosRoute,
   EsBlogRoute: EsBlogRouteWithChildren,
   EsContactoRoute: EsContactoRoute,
-  EsEquipoRoute: EsEquipoRoute,
   EsInversionistasRoute: EsInversionistasRoute,
   EsNosotrosRoute: EsNosotrosRoute,
-  EsNoticiasRoute: EsNoticiasRoute,
   EsPrivacidadRoute: EsPrivacidadRoute,
+  EsQuienesSomosRoute: EsQuienesSomosRoute,
   EsSolucionesRoute: EsSolucionesRoute,
   EsTecnologiaRoute: EsTecnologiaRoute,
   EsTerminosRoute: EsTerminosRoute,

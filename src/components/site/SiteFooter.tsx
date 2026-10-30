@@ -1,9 +1,11 @@
+
 import { Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import type { Lang } from "@/i18n/types";
 import { routeMap } from "@/i18n/types";
 import { t } from "@/i18n/dict";
 import { company, social } from "@/content/site";
-import { Linkedin, Instagram, Youtube, Mail, MessageCircle, Calendar } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import { NewsletterForm } from "./NewsletterForm";
 
 export function SiteFooter({ lang }: { lang: Lang }) {
@@ -38,19 +40,36 @@ export function SiteFooter({ lang }: { lang: Lang }) {
               className="h-12 w-auto transition-transform duration-300 hover:scale-105"
             />
           </Link>
-          <p className="mt-4 max-w-xs text-sm text-text-secondary">{F.tagline}</p>
+
+          <p className="mt-4 max-w-xs text-sm text-text-secondary">
+            {F.tagline}
+          </p>
 
           <div className="mt-6">
             <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">
               {F.followUs}
             </p>
-            <p className="mt-2 max-w-xs text-xs text-text-muted">{F.followCopy}</p>
+
+            <p className="mt-2 max-w-xs text-xs text-text-muted">
+              {F.followCopy}
+            </p>
+
             <div className="mt-4 flex flex-wrap gap-2">
-              <SocialPill href={social.linkedin} icon={<Linkedin className="h-4 w-4" />} label="LinkedIn" />
-              <SocialPill href={social.instagram} icon={<Instagram className="h-4 w-4" />} label="Instagram" />
-              <SocialPill href={social.tiktok} icon={<TikTokIcon />} label="TikTok Kumpels" />
-              <SocialPill href={`mailto:${company.email}`} icon={<Mail className="h-4 w-4" />} label="Email" />
-              <SocialPill href={social.calendly} icon={<Calendar className="h-4 w-4" />} label="Calendly" />
+              <SocialPill
+                href="https://www.linkedin.com/company/kumpelssas"
+                icon={<Linkedin className="h-4 w-4" />}
+                label="LinkedIn"
+              />
+              <SocialPill
+                href="https://www.instagram.com/kumpels.sas/"
+                icon={<Instagram className="h-4 w-4" />}
+                label="Instagram"
+              />
+              <SocialPill
+                href="https://www.tiktok.com/@kumpelssas"
+                icon={<TikTokIcon />}
+                label="TikTok Kumpels"
+              />
             </div>
           </div>
         </div>
@@ -60,31 +79,58 @@ export function SiteFooter({ lang }: { lang: Lang }) {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-text-muted">
               {F.product}
             </h4>
+
             <ul className="mt-4 space-y-2 text-sm text-text-secondary">
-              <li><Link to={r.solutions} className="hover:text-primary">{N.solutions}</Link></li>
-              <li><Link to={r.technology} className="hover:text-primary">{N.technology}</Link></li>
-              <li><Link to={r.validation} className="hover:text-primary">{N.validation}</Link></li>
+              <li>
+                <Link to={r.solutions} className="hover:text-primary">
+                  {N.solutions}
+                </Link>
+              </li>
+              <li>
+                <Link to={r.validation} className="hover:text-primary">
+                  {N.validation}
+                </Link>
+              </li>
             </ul>
           </div>
+
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-text-muted">
               {F.company}
             </h4>
+
             <ul className="mt-4 space-y-2 text-sm text-text-secondary">
-              <li><Link to={r.investors} className="hover:text-primary">{N.investors}</Link></li>
-              <li><Link to={r.team} className="hover:text-primary">{N.team}</Link></li>
-              <li><Link to={r.blog} className="hover:text-primary">{N.blog}</Link></li>
-              <li><Link to={r.contact} className="hover:text-primary">{N.contact}</Link></li>
+              <li>
+                <Link to={r.about} className="hover:text-primary">
+                  {F.aboutUs}
+                </Link>
+              </li>
+              <li>
+                <Link to={r.blog} className="hover:text-primary">
+                  {N.blog}
+                </Link>
+              </li>
+              <li>
+                <Link to={r.contact} className="hover:text-primary">
+                  {N.contact}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="lg:col-span-4">
           <NewsletterForm lang={lang} compact />
+
           <div className="mt-6 space-y-1 text-xs text-text-muted">
-            <p className="font-semibold text-text-secondary">{company.legalName}</p>
+            <p className="font-semibold text-text-secondary">
+              {company.legalName}
+            </p>
             <p>
-              <a href={`mailto:${company.email}`} className="hover:text-primary">
+              <a
+                href={`mailto:${company.email}`}
+                className="hover:text-primary"
+              >
                 {company.email}
               </a>
             </p>
@@ -95,13 +141,17 @@ export function SiteFooter({ lang }: { lang: Lang }) {
 
       <div className="border-t border-border">
         <div className="container-page flex flex-col items-start justify-between gap-3 py-6 text-xs text-text-muted md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} {company.legalName}. {F.rights}</p>
+          <p>
+            © 2026 {company.legalName}{" "}
+            {F.rights}
+          </p>
+
           <div className="flex items-center gap-4">
             <Link to={r.privacy} className="hover:text-primary">
-              {lang === "es" ? "Privacidad" : "Privacy"}
+              {F.privacy}
             </Link>
             <Link to={r.terms} className="hover:text-primary">
-              {lang === "es" ? "Términos" : "Terms"}
+              {F.terms}
             </Link>
           </div>
         </div>
@@ -110,7 +160,15 @@ export function SiteFooter({ lang }: { lang: Lang }) {
   );
 }
 
-function SocialPill({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+function SocialPill({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: ReactNode;
+  label: string;
+}) {
   return (
     <a
       href={href}
@@ -127,7 +185,12 @@ function SocialPill({ href, icon, label }: { href: string; icon: React.ReactNode
 
 function TikTokIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="currentColor"
+      aria-hidden
+    >
       <path d="M16.5 3a5.5 5.5 0 0 0 5 5v3a8.5 8.5 0 0 1-5-1.6V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3h3z" />
     </svg>
   );

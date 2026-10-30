@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { InvestorsPage } from "@/components/site/pages";
+import { CoreInvestorsPage } from "@/components/site/CoreInvestorsPage";
+
 export const Route = createFileRoute("/es/inversionistas")({
   head: () => ({
     meta: [
+      { name: "robots", content: "noindex, nofollow" },
       { title: "Inversionistas — Kumpels" },
-      { name: "description", content: "Oportunidad, tracción, modelo, hoja de ruta y deck para inversionistas." },
+      { name: "description", content: "Kumpels Core: plataforma de seguridad del medicamento, innovación, reconocimientos y alianzas estratégicas." },
       { property: "og:title", content: "Inversionistas — Kumpels" },
       { property: "og:url", content: "/es/inversionistas" },
     ],
@@ -14,5 +16,5 @@ export const Route = createFileRoute("/es/inversionistas")({
       { rel: "alternate", hrefLang: "en", href: "/en/investors" },
     ],
   }),
-  component: () => <InvestorsPage lang="es" />,
+  component: () => <CoreInvestorsPage lang="es" />,
 });

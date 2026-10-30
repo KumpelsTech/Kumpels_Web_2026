@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { StubPage } from "@/components/site/StubPage";
+import { LegalPage } from "@/components/site/LegalPage";
+import { privacyEn } from "@/content/legal/privacy.en";
 
 export const Route = createFileRoute("/en/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy policy — Kumpels" },
-      { name: "description", content: "How Kumpels protects personal information and institutional data." },
-      { property: "og:title", content: "Privacy policy — Kumpels" },
+      { title: "Privacy Policy — Kumpels" },
+      { name: "description", content: "Learn how Kumpels processes personal data collected through its website." },
+      { property: "og:title", content: "Privacy Policy — Kumpels" },
       { property: "og:url", content: "/en/privacy" },
     ],
     links: [
@@ -15,5 +16,5 @@ export const Route = createFileRoute("/en/privacy")({
       { rel: "alternate", hrefLang: "en", href: "/en/privacy" },
     ],
   }),
-  component: () => <StubPage lang="en" title="Privacy policy" eyebrow="Legal" />,
+  component: () => <LegalPage lang="en" document={privacyEn} />,
 });

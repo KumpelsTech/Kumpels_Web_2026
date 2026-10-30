@@ -4,20 +4,20 @@ import { HomePage } from "@/components/site/HomePage";
 export const Route = createFileRoute("/en/")({
   head: () => ({
     meta: [
-      { title: "Kumpels — Technology for safer healthcare" },
+      { title: "Kumpels Core — Coordinated, traceable medication workflows" },
       {
         name: "description",
         content:
-          "Kumpels connects prescribing, pharmacy, nursing and medication administration to help prevent errors and improve patient safety.",
+          "Kumpels Core coordinates complex, medication-intensive workflows, connecting patients, teams and systems to prevent medication errors and ensure traceability.",
       },
-      { property: "og:title", content: "Kumpels — Technology for safer healthcare" },
+      { property: "og:title", content: "Kumpels Core — Coordinated, traceable medication workflows" },
       {
         property: "og:description",
         content:
-          "HealthTech platform connecting the medication journey to support patient safety.",
+          "Kumpels Core coordinates complex, medication-intensive workflows, connecting patients, teams and systems to prevent medication errors and ensure traceability.",
       },
       { property: "og:url", content: "/en" },
-      { name: "twitter:title", content: "Kumpels — Technology for safer healthcare" },
+      { name: "twitter:title", content: "Kumpels Core — Coordinated, traceable medication workflows" },
     ],
     links: [
       { rel: "canonical", href: "/en" },

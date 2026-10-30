@@ -1,21 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { articles } from "@/content/site";
 import { BlogPostPage } from "@/components/site/pages";
 
+const SITE_ORIGIN = "https://website.kumpels.com.co";
+
 export const Route = createFileRoute("/es/blog/$slug")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `Artículo — Kumpels` },
-      { name: "description", content: "Artículo del blog de Kumpels." },
-      { property: "og:title", content: "Artículo — Kumpels" },
-      { property: "og:type", content: "article" },
-      { property: "og:url", content: `/es/blog/${params.slug}` },
-    ],
-    links: [
-      { rel: "canonical", href: `/es/blog/${params.slug}` },
-      { rel: "alternate", hrefLang: "es", href: `/es/blog/${params.slug}` },
-      { rel: "alternate", hrefLang: "en", href: `/en/blog/${params.slug}` },
-    ],
-  }),
+  head: ({ params }) => {
+    const article = articles.find((item) => item.slug === params.slug);
+    const title = article ? `${article.title_es} — Kumpels` : "Artículo — Kumpels";
+    const description = article?.excerpt_es ?? "Artículo del blog de Kumpels.";
+    const canonicalUrl = `${SITE_ORIGIN}/es/blog/${encodeURIComponent(params.slug)}`;
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: canonicalUrl },
+        ...(article ? [{ property: "article:published_time", content: article.date }] : []),
+      ],
+      links: [
+        { rel: "canonical", href: canonicalUrl },
+        { rel: "alternate", hrefLang: "es", href: `${SITE_ORIGIN}/es/blog/${encodeURIComponent(params.slug)}` },
+        { rel: "alternate", hrefLang: "en", href: `${SITE_ORIGIN}/en/blog/${encodeURIComponent(params.slug)}` },
+      ],
+    };
+  },
   component: () => {
     const { slug } = Route.useParams();
     return <BlogPostPage lang="es" slug={slug} />;

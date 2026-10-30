@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { StubPage } from "@/components/site/StubPage";
+import { LegalPage } from "@/components/site/LegalPage";
+import { termsEs } from "@/content/legal/terms.es";
 
 export const Route = createFileRoute("/es/terminos")({
   head: () => ({
     meta: [
       { title: "Términos y condiciones — Kumpels" },
-      { name: "description", content: "Términos y condiciones de uso de la plataforma Kumpels." },
+      { name: "description", content: "Consulta los términos y condiciones de uso del sitio web de Kumpels." },
       { property: "og:title", content: "Términos y condiciones — Kumpels" },
       { property: "og:url", content: "/es/terminos" },
     ],
@@ -15,5 +16,5 @@ export const Route = createFileRoute("/es/terminos")({
       { rel: "alternate", hrefLang: "en", href: "/en/terms" },
     ],
   }),
-  component: () => <StubPage lang="es" title="Términos y condiciones" eyebrow="Legal" />,
+  component: () => <LegalPage lang="es" document={termsEs} />,
 });

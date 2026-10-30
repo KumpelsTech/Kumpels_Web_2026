@@ -4,20 +4,20 @@ import { HomePage } from "@/components/site/HomePage";
 export const Route = createFileRoute("/es/")({
   head: () => ({
     meta: [
-      { title: "Kumpels — Tecnología para una atención más segura" },
+      { title: "Kumpels Core — Flujos con medicamentos, coordinados y trazables" },
       {
         name: "description",
         content:
-          "Kumpels conecta prescripción, farmacia, enfermería y administración del medicamento para ayudar a prevenir errores y mejorar la seguridad del paciente.",
+          "Kumpels Core coordina flujos complejos intensivos en medicamentos: conecta pacientes, equipos y sistemas para prevenir errores de medicación y dejar trazabilidad.",
       },
-      { property: "og:title", content: "Kumpels — Tecnología para una atención más segura" },
+      { property: "og:title", content: "Kumpels Core — Flujos con medicamentos, coordinados y trazables" },
       {
         property: "og:description",
         content:
-          "Plataforma HealthTech para conectar el viaje del medicamento y apoyar la seguridad del paciente.",
+          "Kumpels Core coordina flujos complejos intensivos en medicamentos: conecta pacientes, equipos y sistemas para prevenir errores de medicación y dejar trazabilidad.",
       },
       { property: "og:url", content: "/es" },
-      { name: "twitter:title", content: "Kumpels — Tecnología para una atención más segura" },
+      { name: "twitter:title", content: "Kumpels Core — Flujos con medicamentos, coordinados y trazables" },
     ],
     links: [
       { rel: "canonical", href: "/es" },
