@@ -10,6 +10,7 @@ export type RouteKey =
   | "team"
   | "about"
   | "blog"
+  | "press"
   | "news"
   | "contact"
   | "privacy"
@@ -27,6 +28,7 @@ export const routeMap: Record<Lang, Record<RouteKey, string>> = {
     team: "/es/quienes-somos",
     about: "/es/quienes-somos",
     blog: "/es/blog",
+    press: "/es/prensa",
     news: "/es/blog",
     contact: "/es/contacto",
     privacy: "/es/privacidad",
@@ -43,6 +45,7 @@ export const routeMap: Record<Lang, Record<RouteKey, string>> = {
     team: "/en/about",
     about: "/en/about",
     blog: "/en/blog",
+    press: "/en/press",
     news: "/en/blog",
     contact: "/en/contact",
     privacy: "/en/privacy",

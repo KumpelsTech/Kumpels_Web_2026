@@ -101,13 +101,18 @@ export function SiteFooter({ lang }: { lang: Lang }) {
 
             <ul className="mt-4 space-y-2 text-sm text-text-secondary">
               <li>
-                <Link to={r.about} className="hover:text-primary">
+                <Link to={r.team} className="hover:text-primary">
                   {F.aboutUs}
                 </Link>
               </li>
               <li>
                 <Link to={r.blog} className="hover:text-primary">
                   {N.blog}
+                </Link>
+              </li>
+              <li>
+                <Link to={r.press} className="hover:text-primary">
+                  {lang === "es" ? "Prensa" : "Press"}
                 </Link>
               </li>
               <li>
