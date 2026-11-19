@@ -21,6 +21,7 @@ import { Route as EsTecnologiaRouteImport } from './routes/es.tecnologia'
 import { Route as EsSolucionesRouteImport } from './routes/es.soluciones'
 import { Route as EsQuienesSomosRouteImport } from './routes/es.quienes-somos'
 import { Route as EsPrivacidadRouteImport } from './routes/es.privacidad'
+import { Route as EsPrensaRouteImport } from './routes/es.prensa'
 import { Route as EsNosotrosRouteImport } from './routes/es.nosotros'
 import { Route as EsInversionistasRouteImport } from './routes/es.inversionistas'
 import { Route as EsContactoRouteImport } from './routes/es.contacto'
@@ -31,6 +32,7 @@ import { Route as EnTermsRouteImport } from './routes/en.terms'
 import { Route as EnTechnologyRouteImport } from './routes/en.technology'
 import { Route as EnSolutionsRouteImport } from './routes/en.solutions'
 import { Route as EnPrivacyRouteImport } from './routes/en.privacy'
+import { Route as EnPressRouteImport } from './routes/en.press'
 import { Route as EnInvestorsRouteImport } from './routes/en.investors'
 import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnBlogRouteImport } from './routes/en.blog'
@@ -99,6 +101,11 @@ const EsPrivacidadRoute = EsPrivacidadRouteImport.update({
   path: '/privacidad',
   getParentRoute: () => EsRoute,
 } as any)
+const EsPrensaRoute = EsPrensaRouteImport.update({
+  id: '/prensa',
+  path: '/prensa',
+  getParentRoute: () => EsRoute,
+} as any)
 const EsNosotrosRoute = EsNosotrosRouteImport.update({
   id: '/nosotros',
   path: '/nosotros',
@@ -149,6 +156,11 @@ const EnPrivacyRoute = EnPrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => EnRoute,
 } as any)
+const EnPressRoute = EnPressRouteImport.update({
+  id: '/press',
+  path: '/press',
+  getParentRoute: () => EnRoute,
+} as any)
 const EnInvestorsRoute = EnInvestorsRouteImport.update({
   id: '/investors',
   path: '/investors',
@@ -194,6 +206,7 @@ export interface FileRoutesByFullPath {
   '/en/blog': typeof EnBlogRouteWithChildren
   '/en/contact': typeof EnContactRoute
   '/en/investors': typeof EnInvestorsRoute
+  '/en/press': typeof EnPressRoute
   '/en/privacy': typeof EnPrivacyRoute
   '/en/solutions': typeof EnSolutionsRoute
   '/en/technology': typeof EnTechnologyRoute
@@ -204,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/es/contacto': typeof EsContactoRoute
   '/es/inversionistas': typeof EsInversionistasRoute
   '/es/nosotros': typeof EsNosotrosRoute
+  '/es/prensa': typeof EsPrensaRoute
   '/es/privacidad': typeof EsPrivacidadRoute
   '/es/quienes-somos': typeof EsQuienesSomosRoute
   '/es/soluciones': typeof EsSolucionesRoute
@@ -223,6 +237,7 @@ export interface FileRoutesByTo {
   '/en/blog': typeof EnBlogRouteWithChildren
   '/en/contact': typeof EnContactRoute
   '/en/investors': typeof EnInvestorsRoute
+  '/en/press': typeof EnPressRoute
   '/en/privacy': typeof EnPrivacyRoute
   '/en/solutions': typeof EnSolutionsRoute
   '/en/technology': typeof EnTechnologyRoute
@@ -233,6 +248,7 @@ export interface FileRoutesByTo {
   '/es/contacto': typeof EsContactoRoute
   '/es/inversionistas': typeof EsInversionistasRoute
   '/es/nosotros': typeof EsNosotrosRoute
+  '/es/prensa': typeof EsPrensaRoute
   '/es/privacidad': typeof EsPrivacidadRoute
   '/es/quienes-somos': typeof EsQuienesSomosRoute
   '/es/soluciones': typeof EsSolucionesRoute
@@ -255,6 +271,7 @@ export interface FileRoutesById {
   '/en/blog': typeof EnBlogRouteWithChildren
   '/en/contact': typeof EnContactRoute
   '/en/investors': typeof EnInvestorsRoute
+  '/en/press': typeof EnPressRoute
   '/en/privacy': typeof EnPrivacyRoute
   '/en/solutions': typeof EnSolutionsRoute
   '/en/technology': typeof EnTechnologyRoute
@@ -265,6 +282,7 @@ export interface FileRoutesById {
   '/es/contacto': typeof EsContactoRoute
   '/es/inversionistas': typeof EsInversionistasRoute
   '/es/nosotros': typeof EsNosotrosRoute
+  '/es/prensa': typeof EsPrensaRoute
   '/es/privacidad': typeof EsPrivacidadRoute
   '/es/quienes-somos': typeof EsQuienesSomosRoute
   '/es/soluciones': typeof EsSolucionesRoute
@@ -288,6 +306,7 @@ export interface FileRouteTypes {
     | '/en/blog'
     | '/en/contact'
     | '/en/investors'
+    | '/en/press'
     | '/en/privacy'
     | '/en/solutions'
     | '/en/technology'
@@ -298,6 +317,7 @@ export interface FileRouteTypes {
     | '/es/contacto'
     | '/es/inversionistas'
     | '/es/nosotros'
+    | '/es/prensa'
     | '/es/privacidad'
     | '/es/quienes-somos'
     | '/es/soluciones'
@@ -317,6 +337,7 @@ export interface FileRouteTypes {
     | '/en/blog'
     | '/en/contact'
     | '/en/investors'
+    | '/en/press'
     | '/en/privacy'
     | '/en/solutions'
     | '/en/technology'
@@ -327,6 +348,7 @@ export interface FileRouteTypes {
     | '/es/contacto'
     | '/es/inversionistas'
     | '/es/nosotros'
+    | '/es/prensa'
     | '/es/privacidad'
     | '/es/quienes-somos'
     | '/es/soluciones'
@@ -348,6 +370,7 @@ export interface FileRouteTypes {
     | '/en/blog'
     | '/en/contact'
     | '/en/investors'
+    | '/en/press'
     | '/en/privacy'
     | '/en/solutions'
     | '/en/technology'
@@ -358,6 +381,7 @@ export interface FileRouteTypes {
     | '/es/contacto'
     | '/es/inversionistas'
     | '/es/nosotros'
+    | '/es/prensa'
     | '/es/privacidad'
     | '/es/quienes-somos'
     | '/es/soluciones'
@@ -464,6 +488,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EsPrivacidadRouteImport
       parentRoute: typeof EsRoute
     }
+    '/es/prensa': {
+      id: '/es/prensa'
+      path: '/prensa'
+      fullPath: '/es/prensa'
+      preLoaderRoute: typeof EsPrensaRouteImport
+      parentRoute: typeof EsRoute
+    }
     '/es/nosotros': {
       id: '/es/nosotros'
       path: '/nosotros'
@@ -534,6 +565,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnPrivacyRouteImport
       parentRoute: typeof EnRoute
     }
+    '/en/press': {
+      id: '/en/press'
+      path: '/press'
+      fullPath: '/en/press'
+      preLoaderRoute: typeof EnPressRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/en/investors': {
       id: '/en/investors'
       path: '/investors'
@@ -602,6 +640,7 @@ interface EnRouteChildren {
   EnBlogRoute: typeof EnBlogRouteWithChildren
   EnContactRoute: typeof EnContactRoute
   EnInvestorsRoute: typeof EnInvestorsRoute
+  EnPressRoute: typeof EnPressRoute
   EnPrivacyRoute: typeof EnPrivacyRoute
   EnSolutionsRoute: typeof EnSolutionsRoute
   EnTechnologyRoute: typeof EnTechnologyRoute
@@ -616,6 +655,7 @@ const EnRouteChildren: EnRouteChildren = {
   EnBlogRoute: EnBlogRouteWithChildren,
   EnContactRoute: EnContactRoute,
   EnInvestorsRoute: EnInvestorsRoute,
+  EnPressRoute: EnPressRoute,
   EnPrivacyRoute: EnPrivacyRoute,
   EnSolutionsRoute: EnSolutionsRoute,
   EnTechnologyRoute: EnTechnologyRoute,
@@ -643,6 +683,7 @@ interface EsRouteChildren {
   EsContactoRoute: typeof EsContactoRoute
   EsInversionistasRoute: typeof EsInversionistasRoute
   EsNosotrosRoute: typeof EsNosotrosRoute
+  EsPrensaRoute: typeof EsPrensaRoute
   EsPrivacidadRoute: typeof EsPrivacidadRoute
   EsQuienesSomosRoute: typeof EsQuienesSomosRoute
   EsSolucionesRoute: typeof EsSolucionesRoute
@@ -658,6 +699,7 @@ const EsRouteChildren: EsRouteChildren = {
   EsContactoRoute: EsContactoRoute,
   EsInversionistasRoute: EsInversionistasRoute,
   EsNosotrosRoute: EsNosotrosRoute,
+  EsPrensaRoute: EsPrensaRoute,
   EsPrivacidadRoute: EsPrivacidadRoute,
   EsQuienesSomosRoute: EsQuienesSomosRoute,
   EsSolucionesRoute: EsSolucionesRoute,
